@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/stianeikeland/go-rpio"
 	"os"
 	"os/signal"
 	"syscall"
@@ -32,11 +31,11 @@ func main() {
 		<-c
 		redPin.Low()
 		yellowPin.Low()
-		greenPin.Low()		
+		greenPin.Low()
 		os.Exit(0)
 	}()
 
-	defer rpio.Close();
+	defer rpio.Close()
 
 	// Turn lights off to start.
 	redPin.Low()
@@ -50,21 +49,18 @@ func main() {
 		time.Sleep(time.Second * 3)
 
 		// Red and yellow
-
 		yellowPin.High()
 		time.Sleep(time.Second)
 
 		// Green
-	
 		redPin.Low()
 		yellowPin.Low()
 		greenPin.High()
 		time.Sleep(time.Second * 5)
 
 		// Yellow
-	
 		greenPin.Low()
-		yellowPin.High()	
+		yellowPin.High()
 		time.Sleep(time.Second * 2)
 
 		// Yellow off
