@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/stianeikeland/go-rpio"
 	"os"
 	"os/signal"
 	"syscall"
